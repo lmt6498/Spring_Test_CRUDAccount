@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: header"></div>
+<div class="container">
+
+
+    <h2 style="text-align: center">Show Account</h2>
+
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Create Date</th>
+            <th>Role</th>
+            <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="acc: ${accountList}">
+            <td th:text="${acc.id}"></td>
+            <td th:text="${acc.username}"></td>
+            <td th:text="${acc.password}"></td>
+            <td th:text="${acc.createDate}"></td>
+            <td th:text="${acc.createDate}"></td>
+            <td><a th:href="@{/edit/{id}(id=${acc.id})}" class="btn btn-warning">Edit</a></td>
+            <td><a onclick=" return confirm('Bạn có muốn xóa???')" th:href="@{/delete/{id}(id=${acc.id})}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="/layout :: footer"></div>
+</body>
+</html>

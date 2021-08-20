@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: header"></div>
+<div class="container">
+  <h2>Create</h2>
+  <form action="/create" method="post" th:object="${account}">
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>Username:</td>
+        <td><input type="text" th:field="*{username}"></td>
+        <td>Password:</td>
+        <td> <input type="password" th:field="*{password}"></td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Create</button>
+
+  </form>
+</div>
+<div th:replace="/layout :: footer"></div>
+</body>
+</html>
