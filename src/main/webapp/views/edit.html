@@ -16,6 +16,12 @@
         <td>Password:</td>
         <td> <input type="text" th:field="*{password}" th:value="*{password}"></td>
       </tr>
+      <tr>
+        <th>Role</th>
+        <td><select th:field="*{role}">
+          <option th:each="rl : ${roles}" th:value="${rl.id}" th:text="${rl.name}"></option>
+        </select></td>
+      </tr>
       </tbody>
     </table>
     <button type="submit" class="btn btn-success">Edit</button>

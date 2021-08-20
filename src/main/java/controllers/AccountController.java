@@ -1,19 +1,29 @@
 package controllers;
 
 import models.Account;
+import models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import services.IAccountService;
+import services.IRoleService;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Controller
 public class AccountController {
     @Autowired
     private IAccountService accountService;
+    @Autowired
+    private IRoleService roleService;
+
+    @ModelAttribute("roles")
+    public List<Role> roles() {
+        return roleService.findAll();
+    }
 
     @RequestMapping("account")
     public ModelAndView home(@RequestParam(defaultValue = "0") int pageNumber, @RequestParam(defaultValue = "3") int sizePage) {

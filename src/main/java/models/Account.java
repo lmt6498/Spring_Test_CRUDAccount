@@ -3,7 +3,7 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -14,15 +14,27 @@ public class Account {
     private String username;
     private String password;
     private Timestamp createDate;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     public Account() {
     }
 
-    public Account(Integer id, String username, String password, Timestamp createDate) {
+    public Account(Integer id, String username, String password, Timestamp createDate, Role role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.createDate = createDate;
+        this.role = role;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Integer getId() {

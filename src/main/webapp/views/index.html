@@ -28,7 +28,7 @@
             <td th:text="${acc.username}"></td>
             <td th:text="${acc.password}"></td>
             <td th:text="${acc.createDate}"></td>
-            <td th:text="${acc.createDate}"></td>
+            <td th:text="${acc.role}"></td>
             <td><a th:href="@{/edit/{id}(id=${acc.id})}" class="btn btn-warning">Edit</a></td>
             <td><a onclick=" return confirm('Bạn có muốn xóa???')" th:href="@{/delete/{id}(id=${acc.id})}" class="btn btn-danger">Delete</a></td>
         </tr>

@@ -26,6 +26,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import services.AccountServices;
+import services.RoleServices;
 
 
 import javax.persistence.EntityManager;
@@ -132,5 +133,10 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Bean
     public AccountServices accountServices(){
         return new AccountServices();
+    }
+
+    @Bean
+    public RoleServices roleServices(){
+        return new RoleServices();
     }
 }
